@@ -680,6 +680,8 @@ void WorldConfig::BuildConfigCache()
     // SpellQueue
     SetConfigValue<bool>(CONFIG_SPELL_QUEUE_ENABLED, "SpellQueue.Enabled", true);
     SetConfigValue<uint32>(CONFIG_SPELL_QUEUE_WINDOW, "SpellQueue.Window", 400);
+    SetConfigValue<uint32>(CONFIG_GLOBAL_COOLDOWN_MIN, "GlobalCooldown.Min", 1000, ConfigValueCache::Reloadable::Yes,
+        [](uint32 const& value) { return value >= 500 && value <= 1500; }, "500 - 1500");
 
     // World State
     SetConfigValue<uint32>(CONFIG_SUNSREACH_COUNTER_MAX, "Sunsreach.CounterMax", 10000);
