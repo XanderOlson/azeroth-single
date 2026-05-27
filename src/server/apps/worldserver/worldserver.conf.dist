@@ -2339,6 +2339,15 @@ SkillChance.MiningSteps   = 0
 SkillChance.SkinningSteps = 0
 
 #
+#    PlayerSkill.MaxValueOverride
+#        Description: Overrides the level-derived maximum value for player skills.
+#                     Set to 0 to use the default level-derived cap.
+#        Default:     0 - (Disabled)
+#                     600 - (Example: allow level 80 characters to reach 600 skill)
+
+PlayerSkill.MaxValueOverride = 0
+
+#
 #    OffhandCheckAtSpellUnlearn
 #        Description: Unlearning certain spells can change offhand weapon restrictions
 #                     for equip slots.
