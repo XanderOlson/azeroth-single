@@ -171,6 +171,9 @@ public:
     /// Get the maximum skill level a player can reach
     [[nodiscard]] uint16 GetConfigMaxSkillValue() const override
     {
+        if (uint32 overrideValue = getIntConfig(CONFIG_PLAYER_SKILL_MAX_VALUE_OVERRIDE))
+            return uint16(overrideValue);
+
         uint16 lvl = uint16(getIntConfig(CONFIG_MAX_PLAYER_LEVEL));
         return lvl > 60 ? 300 + ((lvl - 60) * 75) / 10 : lvl * 5;
     }

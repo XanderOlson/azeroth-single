@@ -313,6 +313,8 @@ void WorldConfig::BuildConfigCache()
     SetConfigValue<uint32>(CONFIG_SKILL_CHANCE_MINING_STEPS, "SkillChance.MiningSteps", 0);
     SetConfigValue<uint32>(CONFIG_SKILL_CHANCE_SKINNING_STEPS, "SkillChance.SkinningSteps", 0);
 
+    SetConfigValue<uint32>(CONFIG_PLAYER_SKILL_MAX_VALUE_OVERRIDE, "PlayerSkill.MaxValueOverride", 0, ConfigValueCache::Reloadable::No, [](uint32 const& value) { return value <= 65535; }, "<= 65535");
+
     SetConfigValue<bool>(CONFIG_SKILL_PROSPECTING, "SkillChance.Prospecting", false);
     SetConfigValue<bool>(CONFIG_SKILL_MILLING, "SkillChance.Milling", false);
 

@@ -16295,7 +16295,8 @@ bool Player::IsPvP()
 
 uint16 Player::GetMaxSkillValueForLevel() const
 {
-    uint16 result = Unit::GetMaxSkillValueForLevel();
+    uint32 overrideValue = sWorld->getIntConfig(CONFIG_PLAYER_SKILL_MAX_VALUE_OVERRIDE);
+    uint16 result = overrideValue ? uint16(overrideValue) : Unit::GetMaxSkillValueForLevel();
 
     sScriptMgr->OnPlayerGetMaxSkillValueForLevel(const_cast<Player*>(this), result);
 
