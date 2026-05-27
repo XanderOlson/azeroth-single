@@ -36,6 +36,7 @@ void WorldConfig::BuildConfigCache()
     SetConfigValue<float>(RATE_POWER_FOCUS, "Rate.Focus", 1.0f);
     SetConfigValue<float>(RATE_POWER_ENERGY, "Rate.Energy", 1.0f);
     SetConfigValue<float>(RATE_SPELL_COOLDOWN, "Rate.SpellCooldown", 1.0f, ConfigValueCache::Reloadable::Yes, [](float const& value) { return value > 0.0f; }, "> 0");
+    SetConfigValue<float>(RATE_SPELL_CAST_TIME, "Rate.SpellCastTime", 1.0f, ConfigValueCache::Reloadable::Yes, [](float const& value) { return value > 0.0f; }, "> 0");
 
     SetConfigValue<float>(RATE_SKILL_DISCOVERY, "Rate.Skill.Discovery", 1.0f);
 

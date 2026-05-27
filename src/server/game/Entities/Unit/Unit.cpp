@@ -11737,6 +11737,13 @@ void Unit::ModSpellCastTime(SpellInfo const* spellInfo, int32& castTime, Spell* 
         default:
             break;
     }
+
+    if (IsPlayer() && castTime > 0)
+    {
+        constexpr int32 MinScaledSpellCastTime = 100;
+        int32 scaledCastTime = int32(std::round(float(castTime) * sWorld->getRate(RATE_SPELL_CAST_TIME)));
+        castTime = scaledCastTime < MinScaledSpellCastTime ? MinScaledSpellCastTime : scaledCastTime;
+    }
 }
 
 DiminishingLevels Unit::GetDiminishing(DiminishingGroup group)
