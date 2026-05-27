@@ -10936,6 +10936,20 @@ void Player::AddSpellAndCategoryCooldowns(SpellInfo const* spellInfo, uint32 ite
         if (rec < 0) rec = 0;
         if (catrec < 0) catrec = 0;
 
+        float const spellCooldownRate = sWorld->getRate(RATE_SPELL_COOLDOWN);
+        auto applySpellCooldownRate = [spellCooldownRate](int32& cooldown)
+        {
+            if (cooldown <= 0)
+                return;
+
+            constexpr int32 MinScaledSpellCooldown = 100;
+            int32 scaledCooldown = int32(std::round(float(cooldown) * spellCooldownRate));
+            cooldown = scaledCooldown < MinScaledSpellCooldown ? MinScaledSpellCooldown : scaledCooldown;
+        };
+
+        applySpellCooldownRate(rec);
+        applySpellCooldownRate(catrec);
+
         // no cooldown after applying spell mods
         if (rec == 0 && catrec == 0)
             return;
