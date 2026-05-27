@@ -8891,7 +8891,7 @@ void Spell::TriggerGlobalCooldown()
         if (m_caster->ToPlayer()->GetCommandStatus(CHEAT_COOLDOWN))
             return;
 
-    // Global cooldown can't leave range 1..1.5 secs
+    // Global cooldown can't leave its lower and upper bounds.
     // There are some spells (mostly not casted directly by player) that have < 1 sec and > 1.5 sec global cooldowns
     // but as tests show are not affected by any spell mods.
     if (m_spellInfo->StartRecoveryTime >= MIN_GCD && m_spellInfo->StartRecoveryTime <= MAX_GCD)
@@ -8907,8 +8907,11 @@ void Spell::TriggerGlobalCooldown()
             gcd = int32(float(gcd) * m_caster->GetFloatValue(UNIT_MOD_CAST_SPEED));
         }
 
-        if (gcd < MIN_GCD)
-            gcd = MIN_GCD;
+        int32 minGcd = m_caster->IsPlayer() ? int32(sWorld->getIntConfig(CONFIG_GLOBAL_COOLDOWN_MIN))
+            : MIN_GCD;
+
+        if (gcd < minGcd)
+            gcd = minGcd;
         else if (gcd > MAX_GCD)
             gcd = MAX_GCD;
     }

@@ -2256,6 +2256,17 @@ SpellQueue.Enabled = 1
 SpellQueue.Window = 400
 
 #
+#    GlobalCooldown.Min
+#        Description: Minimum player global cooldown clamp for normal global cooldown spells.
+#                     Setting this to 500 allows haste and spellmods to reduce applicable
+#                     player global cooldowns down to 500ms.
+#        Default:     1000 - (1000ms)
+#                     500  - (500ms)
+#                     1500 - (1500ms)
+
+GlobalCooldown.Min = 1000
+
+#
 ###################################################################################################
 
 ###################################################################################################
