@@ -2177,6 +2177,18 @@ Rate.SpellCastTime     = 1
 Rate.Loyalty           = 1
 
 #
+#    SpellMod.DamageBonusPct
+#        Description: Adds flat percentage points to player SPELLMOD_DAMAGE percent modifiers.
+#                     This only affects direct-damage spellmods that already match the spell
+#                     through the spellmod's spell class mask. It does not affect SPELLMOD_DOT,
+#                     SPELLMOD_DAMAGE_MULTIPLIER, generic damage rates, creature damage, or
+#                     hard-coded spell scripts. This option is reloadable.
+#        Default:     0 - Disabled, preserving default behavior.
+#                     4 - Adds 4 percentage points, so a 6% direct-damage spellmod behaves as 10%.
+
+SpellMod.DamageBonusPct = 0
+
+#
 #    Rate.Rest.InGame
 #    Rate.Rest.Offline.InTavernOrCity
 #    Rate.Rest.Offline.InWilderness
