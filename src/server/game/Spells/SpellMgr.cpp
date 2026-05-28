@@ -3713,12 +3713,12 @@ void SpellMgr::LoadSpellInfoCustomAttributes()
 
             if (spellInfo->StartRecoveryTime != spellOverride.StartRecoveryTime)
             {
-                spellInfo->RecoveryTime = spellOverride.RecoveryTime;
+                spellInfo->StartRecoveryTime = spellOverride.StartRecoveryTime;
             }
 
             if (spellInfo->StartRecoveryCategory != spellOverride.StartRecoveryCategory)
             {
-                spellInfo->RecoveryTime = spellOverride.RecoveryTime;
+                spellInfo->StartRecoveryCategory = spellOverride.StartRecoveryCategory;
             }
         }
 
