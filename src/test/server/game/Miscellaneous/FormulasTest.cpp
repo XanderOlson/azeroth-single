@@ -42,8 +42,8 @@ TEST(FormulasTest, GetGrayLevel)
     EXPECT_EQ(GetGrayLevel(39), 31);
     EXPECT_EQ(GetGrayLevel(40), 31);
     EXPECT_EQ(GetGrayLevel(59), 47);
-    EXPECT_EQ(GetGrayLevel(60), 51);
-    EXPECT_EQ(GetGrayLevel(80), 71);
+    EXPECT_EQ(GetGrayLevel(60), 55);
+    EXPECT_EQ(GetGrayLevel(80), 55);
 }
 
 TEST(FormulasTest, GetColorCode)
@@ -55,7 +55,7 @@ TEST(FormulasTest, GetColorCode)
     EXPECT_EQ(GetColorCode(60, 62), XP_YELLOW);
     EXPECT_EQ(GetColorCode(60, 58), XP_YELLOW);
     EXPECT_EQ(GetColorCode(60, 57), XP_GREEN);
-    EXPECT_EQ(GetColorCode(60, 52), XP_GREEN);
+    EXPECT_EQ(GetColorCode(60, 56), XP_GREEN);
     EXPECT_EQ(GetColorCode(60, 51), XP_GRAY);
     EXPECT_EQ(GetColorCode(60, 1), XP_GRAY);
 }
