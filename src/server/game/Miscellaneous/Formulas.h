@@ -54,7 +54,7 @@ namespace Acore::XP
         else if (pl_level <= 59)
             level = pl_level - 1 - pl_level / 5;
         else
-            level = pl_level - 9;
+            level = 55;
 
         //sScriptMgr->OnGrayLevelCalculation(level, pl_level); // pussywizard: optimization
         return level;
