@@ -9781,7 +9781,6 @@ void Player::ApplySpellMod(uint32 spellId, SpellModOp op, T& basevalue, Spell* s
 
     float totalmul = 1.0f;
     int32 totalflat = 0;
-    float const spellModDamageBonusPct = op == SPELLMOD_DAMAGE ? sWorld->getFloatConfig(CONFIG_SPELLMOD_DAMAGE_BONUS_PCT) : 0.0f;
 
     auto calculateSpellMod = [&](SpellModifier* mod)
     {
@@ -9826,7 +9825,7 @@ void Player::ApplySpellMod(uint32 spellId, SpellModOp op, T& basevalue, Spell* s
 
             // xinef: those two mods should be multiplicative (Glyph of Renew)
             if (mod->op == SPELLMOD_DAMAGE)
-                totalmul *= CalculatePct(1.0f, 100.0f + mod->value + spellModDamageBonusPct);
+                totalmul *= CalculatePct(1.0f, 100.0f + mod->value);
             else if (mod->op == SPELLMOD_DOT)
                 totalmul *= CalculatePct(1.0f, 100.0f + mod->value);
             else
@@ -9847,6 +9846,9 @@ void Player::ApplySpellMod(uint32 spellId, SpellModOp op, T& basevalue, Spell* s
 
         calculateSpellMod(mod);
     }
+
+    if (op == SPELLMOD_DAMAGE && basevalue != T(0) && totalmul != 0.0f)
+        totalmul += CalculatePct(1.0f, sWorld->getFloatConfig(CONFIG_SPELLMOD_DAMAGE_BONUS_PCT));
 
     if (op == SPELLMOD_CASTING_TIME || op == SPELLMOD_DURATION)
         basevalue = (basevalue + totalflat) > 0 ? (basevalue + totalflat) * totalmul : 0;
