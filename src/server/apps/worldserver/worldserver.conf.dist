@@ -2179,12 +2179,13 @@ Rate.Loyalty           = 1
 #
 #    SpellMod.DamageBonusPct
 #        Description: Adds flat percentage points to all player SPELLMOD_DAMAGE calculations.
-#                     This affects player direct-damage spells even when no SPELLMOD_DAMAGE
-#                     talent mask matches the spell. It does not affect SPELLMOD_DOT,
-#                     SPELLMOD_DAMAGE_MULTIPLIER, generic damage rates, creature damage,
-#                     or hard-coded spell scripts. This option is reloadable.
+#                     The bonus is added to each matched player SPELLMOD_DAMAGE percent modifier.
+#                     If no SPELLMOD_DAMAGE percent modifier matches, the bonus is applied once
+#                     so every player direct-damage spell can benefit. It does not affect
+#                     SPELLMOD_DOT, SPELLMOD_DAMAGE_MULTIPLIER, generic damage rates, creature
+#                     damage, or hard-coded spell scripts. This option is reloadable.
 #        Default:     0 - Disabled, preserving default behavior.
-#                     4 - Adds 4 percentage points to all player direct-damage spellmod calculations.
+#                     4 - Adds 4 percentage points to player direct-damage spellmod calculations.
 
 SpellMod.DamageBonusPct = 0
 
