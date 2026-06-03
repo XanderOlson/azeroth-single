@@ -9848,7 +9848,7 @@ void Player::ApplySpellMod(uint32 spellId, SpellModOp op, T& basevalue, Spell* s
     }
 
     if (op == SPELLMOD_DAMAGE && basevalue != T(0) && totalmul != 0.0f)
-        totalmul += CalculatePct(1.0f, sWorld->getFloatConfig(CONFIG_SPELLMOD_DAMAGE_BONUS_PCT));
+        totalmul *= CalculatePct(1.0f, 100.0f + sWorld->getFloatConfig(CONFIG_SPELLMOD_DAMAGE_BONUS_PCT));
 
     if (op == SPELLMOD_CASTING_TIME || op == SPELLMOD_DURATION)
         basevalue = (basevalue + totalflat) > 0 ? (basevalue + totalflat) * totalmul : 0;
