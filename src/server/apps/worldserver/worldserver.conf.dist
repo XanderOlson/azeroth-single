@@ -2200,6 +2200,19 @@ SpellMod.DamageBonusPct = 0
 Armor.DamageReductionCap = 75
 
 #
+#    Armor.DamageReductionMultiplier
+#        Description: Multiplies the physical damage reduction percentage calculated from armor.
+#                     The multiplier is applied before Armor.DamageReductionCap. It does not affect
+#                     armor values, armor penetration, aura damage taken modifiers, resilience, block,
+#                     absorbs, or magic resistance. This option is reloadable.
+#        Default:     1   - Preserve default armor mitigation behavior.
+#                     0.5 - Armor mitigation is half as effective.
+#                     2   - Armor mitigation is twice as effective, capped by Armor.DamageReductionCap.
+#
+
+Armor.DamageReductionMultiplier = 1
+
+#
 #    Rate.Rest.InGame
 #    Rate.Rest.Offline.InTavernOrCity
 #    Rate.Rest.Offline.InWilderness

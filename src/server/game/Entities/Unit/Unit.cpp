@@ -2289,6 +2289,7 @@ uint32 Unit::CalcArmorReducedDamage(Unit const* attacker, Unit const* victim, co
 
     float tmpvalue = 0.1f * armor / (8.5f * levelModifier + 40);
     tmpvalue = tmpvalue / (1.0f + tmpvalue);
+    tmpvalue *= sWorld->getFloatConfig(CONFIG_ARMOR_DAMAGE_REDUCTION_MULTIPLIER);
 
     if (tmpvalue < 0.0f)
         tmpvalue = 0.0f;
