@@ -2189,6 +2189,17 @@ Rate.Loyalty           = 1
 SpellMod.DamageBonusPct = 0
 
 #
+#    Armor.DamageReductionCap
+#        Description: Maximum percentage of incoming physical damage that armor can mitigate.
+#                     This only caps armor-based mitigation. It does not affect aura damage taken
+#                     modifiers, resilience, block, absorbs, or magic resistance. This option is reloadable.
+#        Default:     75 - Preserve default armor mitigation behavior.
+#                     50 - Armor mitigation cannot reduce more than 50% of incoming physical damage.
+#
+
+Armor.DamageReductionCap = 75
+
+#
 #    Rate.Rest.InGame
 #    Rate.Rest.Offline.InTavernOrCity
 #    Rate.Rest.Offline.InWilderness
