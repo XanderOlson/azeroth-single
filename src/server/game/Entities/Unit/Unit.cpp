@@ -2292,8 +2292,9 @@ uint32 Unit::CalcArmorReducedDamage(Unit const* attacker, Unit const* victim, co
 
     if (tmpvalue < 0.0f)
         tmpvalue = 0.0f;
-    if (tmpvalue > 0.75f)
-        tmpvalue = 0.75f;
+    float const armorDamageReductionCap = sWorld->getFloatConfig(CONFIG_ARMOR_DAMAGE_REDUCTION_CAP) / 100.0f;
+    if (tmpvalue > armorDamageReductionCap)
+        tmpvalue = armorDamageReductionCap;
 
     return uint32(std::ceil(std::max(damage * (1.0f - tmpvalue), 0.0f)));
 }
